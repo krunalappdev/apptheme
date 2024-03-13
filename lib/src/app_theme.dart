@@ -26,6 +26,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
         } else {
           widget.onThemeChangeCallback!(ThemeData.light());
         }
+        isChange = value;
         setState(() {});
       },
     );
