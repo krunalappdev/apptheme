@@ -34,4 +34,8 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
     isChange = !isChange;
     setState(() {});
   }
+
+  static ThemeMode getCurrentTheme() {
+    return currentTheme;
+  }
 }
