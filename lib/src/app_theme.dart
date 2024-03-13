@@ -5,7 +5,7 @@ ThemeMode currentTheme = ThemeMode.light;
 
 class ChangeAppTheme extends StatefulWidget {
   final OnThemeChangeCallback? onThemeChangeCallback;
-  const ChangeAppTheme({super.key, this.onThemeChangeCallback});
+  const ChangeAppTheme({super.key, required this.onThemeChangeCallback});
 
   @override
   State<ChangeAppTheme> createState() => _ChangeAppThemeState();
