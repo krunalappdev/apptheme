@@ -21,21 +21,14 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
     return Switch(
       value: isChange,
       onChanged: (value) {
-        widget.onThemeChangeCallback!(value);
         if (value && brightness == Brightness.light) {
-          setCurrentTheme(ThemeMode.dark);
+          widget.onThemeChangeCallback!(ThemeMode.dark);
         } else {
-          setCurrentTheme(ThemeMode.light);
+          widget.onThemeChangeCallback!(ThemeMode.light);
         }
       },
     );
   }
-
-  void setCurrentTheme(ThemeMode theme) {
-    currentTheme = theme;
-    isChange = !isChange;
-    setState(() {});
-  }
 }
 
-typedef OnThemeChangeCallback = Function(bool value);
+typedef OnThemeChangeCallback = Function(ThemeMode value);
