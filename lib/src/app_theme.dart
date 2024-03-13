@@ -22,13 +22,13 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
       value: isChange,
       onChanged: (value) {
         if (value && brightness == Brightness.light) {
-          widget.onThemeChangeCallback!(ThemeMode.dark);
+          widget.onThemeChangeCallback!(ThemeData.dark());
         } else {
-          widget.onThemeChangeCallback!(ThemeMode.light);
+          widget.onThemeChangeCallback!(ThemeData.light());
         }
       },
     );
   }
 }
 
-typedef OnThemeChangeCallback = Function(ThemeMode value);
+typedef OnThemeChangeCallback = Function(ThemeData value);
