@@ -13,11 +13,12 @@ class ChangeAppTheme extends StatefulWidget {
 class _ChangeAppThemeState extends State<ChangeAppTheme> {
   var brightness =
       SchedulerBinding.instance.platformDispatcher.platformBrightness;
+  bool isChange = false;
 
   @override
   Widget build(BuildContext context) {
     return Switch(
-      value: false,
+      value: isChange,
       onChanged: (value) {
         if (value && brightness == Brightness.light) {
           setCurrentTheme(ThemeMode.dark);
@@ -30,5 +31,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
 
   void setCurrentTheme(ThemeMode theme) {
     currentTheme = theme;
+    isChange = !isChange;
+    setState(() {});
   }
 }
