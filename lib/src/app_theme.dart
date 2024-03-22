@@ -6,9 +6,11 @@ ThemeMode currentTheme = ThemeMode.light;
 
 class ChangeAppTheme extends StatefulWidget {
   final OnThemeChangeCallback? onThemeChangeCallback;
-  final int type;
+  final TypeSetting typeSetting;
   const ChangeAppTheme(
-      {super.key, required this.onThemeChangeCallback, required this.type});
+      {super.key,
+      required this.onThemeChangeCallback,
+      required this.typeSetting});
 
   @override
   State<ChangeAppTheme> createState() => _ChangeAppThemeState();
@@ -22,7 +24,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
   @override
   void initState() {
     super.initState();
-    if (widget.type == Constants.typeDialog) {
+    if (widget.typeSetting == TypeSetting.typeDialog) {
       showDialog(
         context: context,
         builder: (context) {
@@ -69,7 +71,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.type == Constants.typeSwitch
+    return widget.typeSetting == TypeSetting.typeSwitch
         ? Switch(
             value: isChange,
             onChanged: (value) {
