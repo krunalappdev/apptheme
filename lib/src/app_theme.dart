@@ -1,8 +1,9 @@
-import 'package:app_theme/src/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 ThemeMode currentTheme = ThemeMode.light;
+
+enum TypeSetting { typeSwitch, typeDialog }
 
 class ChangeAppTheme extends StatefulWidget {
   final OnThemeChangeCallback? onThemeChangeCallback;

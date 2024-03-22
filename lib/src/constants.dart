@@ -1,1 +1,0 @@
-enum TypeSetting { typeSwitch, typeDialog }
