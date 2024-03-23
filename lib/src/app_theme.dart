@@ -9,6 +9,7 @@ class ChangeAppTheme extends StatefulWidget {
   final OnThemeChangeCallback? onThemeChangeCallback;
   final TypeSetting typeSetting;
   final String textValue;
+
   const ChangeAppTheme(
       {super.key,
       required this.onThemeChangeCallback,
@@ -59,30 +60,49 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.all(15.0),
-                            child: Text(
-                              'Light',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.all(15.0),
-                            child: Text(
-                              'Dark',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                          const Padding(padding: EdgeInsets.only(top: 50.0)),
-                          TextButton(
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: TextButton(
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                widget
+                                    .onThemeChangeCallback!(ThemeData.light());
+                              },
+                              child: const Text(
+                                'Light',
+                                style: TextStyle(color: Colors.red),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: TextButton(
+                              onPressed: () {
+                                widget.onThemeChangeCallback!(ThemeData.dark());
+                              },
+                              child: const Text(
+                                'Dark',
+                                style: TextStyle(color: Colors.red),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: TextButton(
+                              onPressed: () {
+                                if (brightness == Brightness.dark) {
+                                  widget
+                                      .onThemeChangeCallback!(ThemeData.dark());
+                                } else {
+                                  widget.onThemeChangeCallback!(
+                                      ThemeData.light());
+                                }
                               },
                               child: const Text(
                                 'System Default',
-                                style: TextStyle(
-                                    color: Colors.purple, fontSize: 18.0),
-                              ))
+                                style: TextStyle(color: Colors.red),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
