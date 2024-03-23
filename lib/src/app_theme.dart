@@ -27,6 +27,12 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
 
   @override
   void initState() {
+    var dispatcher = SchedulerBinding.instance.platformDispatcher;
+
+    // This callback is called every time the brightness changes.
+    dispatcher.onPlatformBrightnessChanged = () {
+      brightness = dispatcher.platformBrightness;
+    };
     super.initState();
   }
 
