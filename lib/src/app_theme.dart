@@ -32,6 +32,11 @@ class _ChangeAppThemeState extends State<ChangeAppTheme> {
     // This callback is called every time the brightness changes.
     dispatcher.onPlatformBrightnessChanged = () {
       brightness = dispatcher.platformBrightness;
+      if (brightness == Brightness.dark) {
+        widget.onThemeChangeCallback!(ThemeData.dark());
+      } else {
+        widget.onThemeChangeCallback!(ThemeData.light());
+      }
     };
     super.initState();
   }
